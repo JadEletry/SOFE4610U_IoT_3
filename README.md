@@ -55,6 +55,36 @@ Run the server which should run on port 8000
 ```
 python3 manage.py runserver
 ```
+## Program Structure
+```
+LightControl/            # Outer directory
+|-- db.sqlite3           # SQLite database file
+|-- LightControl/        # Django project folder
+|   |-- __init__.py
+|   |-- settings.py      # Django project settings
+|   |-- urls.py          # URL configuration
+|   |-- wsgi.py          # WSGI config for deployment
+|
+|-- homeApp/             # Django app folder
+|   |-- __init__.py
+|   |-- admin.py         # Django admin configuration
+|   |-- apps.py          # Configuration for the app
+|   |-- models.py        # Models for your app
+|   |-- gpio_config.py   # GPIO configuration
+|   |-- serializers.py   # Serializers for models
+|   |-- tests.py         # Tests for your app
+|   |-- templates/       # Folder for HTML templates
+|   |   |-- dashboard.html  # HTML file for the dashboard
+|   |
+|   |-- migrations/      # Django database migration files
+|       |-- __init__.py
+|
+|-- manage.py            # Django's command-line utility
+|-- requirements.txt     # File listing project dependencies
+|-- venv/                # Virtual environment directory (if used)
+    |-- ...              # Contents of the virtual environment
+```
+
 ## System Demo Video
 
 

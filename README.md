@@ -1,4 +1,4 @@
-## Light Control System
+# Light Control System
 
 ### Description
 

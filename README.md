@@ -30,3 +30,17 @@ To wire the LDR appropriately, follow these steps:
 - Take one more male/female pin and place it in front of the Digital Output pin (DO) and take the female end and attach it to GPIO23 on the Raspberry Pi board
 
 Sources: https://pinout.xyz/
+
+## Executing the Program
+
+Clone the repository:
+```
+git clone https://github.com/JadEletry/SOFE4610U_IoT_3.git
+cd SOFE4610U_IoT_3
+```
+Install the required dependencies
+```
+pip install -r requirements.txt
+```
+
+

@@ -29,11 +29,11 @@ To wire the LDR appropriately, follow these steps:
 - Take a male to female pin and place it in front of the GND pin of the module and take the female end and attach it to one of the GND pins on the Raspberry Pi board
 - Take one more male/female pin and place it in front of the Digital Output pin (DO) and take the female end and attach it to GPIO23 on the Raspberry Pi board
 
+Sources: https://pinout.xyz/
+
 ## Circuit Image
 
 ![IMG_8111](https://github.com/JadEletry/SOFE4610U_IoT_3/assets/71851213/85ceae7a-7bf6-4415-a97e-2823194c6289)<br>
-
-Sources: https://pinout.xyz/
 
 ## Executing the Program
 
@@ -87,5 +87,6 @@ LightControl/            # Outer directory
 
 ## System Demo Video
 
+https://github.com/JadEletry/SOFE4610U_IoT_3/assets/71851213/e4cb465d-2aeb-44e1-86d7-598823a2e913
 
 

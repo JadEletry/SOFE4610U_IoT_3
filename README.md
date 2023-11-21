@@ -16,8 +16,9 @@ button; the LED can then be set to manual/auto.
 ## Configuring the LED/LDR
 
 To wire the system appropriately, follow these steps:
-1. 
-2. 
-3. 
+- Take an LED and place its shorter leg (cathode) on the negative column of a breadboard
+- Take the LED's longer leg (positive/anode) and place it in-line within a row of the breadboard
+- Take a 1K ohm resistor and place one end next to the positive leg of the LED and place the other end somewhere down the same column of the breadboard
+- 
 
 

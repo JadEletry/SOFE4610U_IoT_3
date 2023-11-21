@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Light Control Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .switch-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .switch {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .switch label {
+            cursor: pointer;
+            user-select: none;
+            margin-right: 5px;
+        }
+        .switch input[type="checkbox"] {
+            display: none;
+        }
+        .slider {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #ccc;
+            transition: .4s;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+            background-color: #2196F3;
+        }
+        .slider.round {
+            background-color: #ccc;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .mode-label {
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Light Control Dashboard</h1>
+    <div class="switch-container">
+        <div class="switch">
+            <label class="mode-label">Mode:</label>
+            <label class="switch">
+                <input type="checkbox" id="modeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="switch">
+            <label class="mode-label">State:</label>
+            <label class="switch">
+                <input type="checkbox" id="stateToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    
+    <script>
+      const toggleMode = async () => {
+          const modeToggle = document.getElementById('modeToggle');
+          const newMode = modeToggle.checked ? 'auto' : 'manual';
+
+          try {
+              const response = await fetch('http://127.0.0.1:8000/api/mode/1/', {
+                  method: 'PUT',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ name: newMode })
+              });
+
+              if (response.ok) {
+                  console.log(`Mode set to ${newMode}`);
+              } else {
+                  console.error('Failed to update mode');
+              }
+          } catch (error) {
+              console.error('Error updating mode:', error);
+          }
+      };
+
+      const toggleState = async () => {
+          const stateToggle = document.getElementById('stateToggle');
+          const newState = stateToggle.checked ? 'on' : 'off';
+
+          try {
+              const response = await fetch('http://127.0.0.1:8000/api/state/1/', {
+                  method: 'PUT',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ name: newState })
+              });
+
+              if (response.ok) {
+                  console.log(`State set to ${newState}`);
+              } else {
+                  console.error('Failed to update state');
+              }
+          } catch (error) {
+              console.error('Error updating state:', error);
+          }
+      };
+
+      document.getElementById('modeToggle').addEventListener('change', toggleMode);
+      document.getElementById('stateToggle').addEventListener('change', toggleState);
+  </script>
+</body>
+</html>
